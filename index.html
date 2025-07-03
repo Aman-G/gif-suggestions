@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suggest a Meme GIF</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Suggest a Meme GIF 🎬</h1>
+    <form id="gifForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" required />
+
+      <label for="gifName">GIF Name</label>
+      <input type="text" id="gifName" required />
+
+      <label for="gifLink">GIF Link (Giphy, Imgur, etc.)</label>
+      <input type="url" id="gifLink" required />
+
+      <label for="description">Why this meme?</label>
+      <textarea id="description"></textarea>
+
+      <button type="submit">Submit Suggestion</button>
+    </form>
+    <div id="thanks" class="hidden">🎉 Thanks for your suggestion!</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
