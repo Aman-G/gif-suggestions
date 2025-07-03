@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   background: #121212;
   color: #fff;
   margin: 0;
@@ -7,51 +7,85 @@ body {
 }
 
 .container {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #1e1e1e;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #333;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin-top: 20px;
+#gif-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-input, textarea {
-  width: 100%;
+.gif-card {
+  background: #1f1f1f;
+  border-radius: 10px;
   padding: 10px;
-  margin-top: 5px;
-  border-radius: 6px;
-  border: none;
-  background: #333;
-  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-button {
-  margin-top: 20px;
+.gif-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.gif-card img {
   width: 100%;
-  padding: 12px;
+  border-radius: 8px;
+}
+
+.gif-name {
+  text-align: center;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.suggest-btn {
+  display: block;
+  margin: 0 auto 30px;
   background: #00ffcc;
+  color: #000;
+  font-weight: bold;
   border: none;
-  border-radius: 6px;
+  padding: 12px 20px;
   font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
+}
+
+label, input, textarea, button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 80px;
+}
+
+button[type="submit"] {
+  background: #00ffcc;
+  color: #000;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 .hidden {
   display: none;
-}
-
-#thanks {
-  margin-top: 20px;
-  text-align: center;
   color: #0f0;
+  text-align: center;
+  margin-top: 20px;
   font-weight: bold;
 }

@@ -1,16 +1,31 @@
-document.getElementById('gifForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+// Fetch memes from local JSON
+fetch('memes.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('gif-list');
+    data.forEach(gif => {
+      const card = document.createElement('div');
+      card.className = 'gif-card';
 
-  // Collect data
-  const name = document.getElementById('name').value;
-  const gifName = document.getElementById('gifName').value;
-  const gifLink = document.getElementById('gifLink').value;
-  const description = document.getElementById('description').value;
+      const img = document.createElement('img');
+      img.src = gif.gifUrl;
+      img.alt = gif.name;
 
-  // Log to console (replace with API call or Google Sheet/Backend later)
-  console.log({ name, gifName, gifLink, description });
+      const name = document.createElement('div');
+      name.className = 'gif-name';
+      name.textContent = gif.name;
 
-  // Clear form & show thank you
-  this.reset();
-  document.getElementById('thanks').classList.remove('hidden');
-});
+      card.appendChild(img);
+      card.appendChild(name);
+
+      // Copy to clipboard on click
+      card.addEventListener('click', () => {
+        const text = `!redeem ${gif.name.replace(/\s+/g, '_')}`;
+        navigator.clipboard.writeText(text).then(() => {
+          alert(`Copied: ${text}`);
+        });
+      });
+
+      container.appendChild(card);
+    });
+  });
